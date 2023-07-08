@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template">
+<head>
+<meta charset="ISO-8859-1">
+<title>Accesso negato</title>
+</head>
+<body>
+	<div class="row" layout:fragment="content">
+		<div class="col-lg-4" style="margin: auto;">
+			<h1>Accesso Negato</h1>
+			<span th:inline="text">Ciao <!-- concatenare il testo con attributi thymeleaf -->
+				[[${#httpServletRequest.remoteUser}]]. Non sei autorizzato</span>
+		</div>
+	</div>
+</body>
+</html>

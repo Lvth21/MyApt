@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+      <!--  jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datepicker</title>
+    <link th:href="@{/css/cal.css}" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<title>Insert</title>
+
+</head>
+<body style="background-color: ivory;">
+
+<div layout:fragment="content">
+<form method="post" th:object="${remy}">
+
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="col-sm-2 form-label"> Reminder</label>
+  <textarea name="remind" class="form-control" id="exampleFormControlTextarea1" rows="5" required></textarea>
+</div>
+<div>
+ <button type="submit" th:formaction="@{/insert-rem}" class="btn btn-primary mb-3">Add</button>
+ <button type="submit" th:formaction="@{/insert-view-rem}" class="btn btn-primary mb-3">Add and view</button>
+ <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+</div>
+</form>
+
+
+
+
+
+</div>
+</body>
+</html>

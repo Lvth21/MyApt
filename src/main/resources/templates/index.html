@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	layout:decorate="template">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+	
+</head>
+<body>
+	<div layout:fragment="content">
+
+<div  sec:authorize="isAnonymous()">
+<h1>  Welcome to MyApts</h1>
+<h5> You'll never forget that thing... you know... that one!</h5>
+</div>
+
+
+		<div style="margin-top: 60px" sec:authorize="isAuthenticated()">
+		
+			<div class="list-group marg">
+				<a th:href="@{/insert}"
+					class="list-group-item list-group-item-action">Insert Meeting</a> <a
+					th:href="@{/insert-rem}"
+					class="list-group-item list-group-item-action">Insert a
+					Reminder</a> <a th:href="@{/view}"
+					class="list-group-item list-group-item-action">View Meetings <span
+					class="badge bg-primary rounded-pill" th:text="${new1}"></span>
+				</a> <a th:href="@{/view/old}"
+					class="list-group-item list-group-item-action">View Old
+					Meetings <span class="badge bg-dark rounded-pill" th:text="${old1}"></span>
+				</a> <a th:href="@{/reminders}"
+					class="list-group-item list-group-item-action">View Reminders <span
+					class="badge bg-danger rounded-pill" th:text="${rem}"></span></a>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+</html>
